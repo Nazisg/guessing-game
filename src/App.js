@@ -5,7 +5,7 @@ function App() {
   const [random, setRandom] =useState(Math.floor(Math.random()*100))
   const [inputValue,setInputValue]=useState('')
   const [count, setCount] = useState(0)
-  const [showModal, setShowModal] = useState(false)
+  const [modal, setModal] = useState("none")
 
   console.log(random)
 
@@ -20,13 +20,22 @@ function App() {
   
   const Submit =()=>{
     if(+inputValue!==random){
+      alert(false)
       setCount(count+1)
-      console.log(false)
+      setInputValue('')
     }else{
-      console.log(true)
+      setModal("flex")
       console.log(count)
     }
-    setShowModal(!showModal)
+  }
+  const closeModal=()=>{
+    setModal("none")
+  }
+  const Start=()=>{
+    setRandom(Math.floor(Math.random()*100))
+    setCount(0)
+    setInputValue('')
+    console.log(random)
   }
 
   return (
@@ -37,10 +46,12 @@ function App() {
     <div className="btn-box">
       <button className="btn give" onClick={Give}>Give a hint</button>
       <button className="btn submit" onClick={Submit}>Submit</button>
-      <button className="btn start">Start over</button>
+      <button className="btn start" onClick={Start}>Start over</button>
     </div>
-    <div className='modal'>
-      {count} cehdde tapdiniz
+    <div className='modal' style={{display:modal}}>
+      <h2>Success</h2>
+      Effort: {count}
+      <button className='btn close' onClick={closeModal}>Close</button>
     </div>
     </div>
   );

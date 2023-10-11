@@ -1,7 +1,12 @@
+@font-face {
+  font-family: inter;
+  src: url(./Inter-Regular.ttf);
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: inter;
 }
 body{
   width: 100%;
@@ -55,11 +60,14 @@ input{
   background-color: #3E64FF;
 }
 .modal{
-  width: 250px;
-  height: 100px;
+  /* width: 250px;
+  height: 100px; */
+  padding: 30px;
   background-color: #fff;
   box-shadow: 0px 0px 30px 35px rgba(133, 119, 252, 0.3);
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -70,4 +78,10 @@ input{
   -moz-transform: translateX(-50%)translateY(-50%);
   -ms-transform: translateX(-50%)translateY(-50%);
   -o-transform: translateX(-50%)translateY(-50%);
+}
+.close{
+  background-color: red;
+}
+h2{
+  color: green;
 }
